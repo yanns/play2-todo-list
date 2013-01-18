@@ -1,19 +1,23 @@
 package models;
 
 import static org.junit.Assert.assertEquals;
-import static play.test.Helpers.fakeApplication;
-import static play.test.Helpers.inMemoryDatabase;
-import static play.test.Helpers.start;
+import static play.test.Helpers.*;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import play.test.FakeApplication;
 
 public class ToDoTest {
+
+    private FakeApplication fakeApplication;
+
     @Before
     public void setUp() {
-        start(fakeApplication(inMemoryDatabase()));
+        fakeApplication = fakeApplication(inMemoryDatabase());
+        start(fakeApplication);
     }
     
     @Test
@@ -37,4 +41,10 @@ public class ToDoTest {
         assertEquals(1, resultList.size());
         assertEquals("Play-Tutorial lesen", resultList.get(0).description);
     }
+
+    @After
+    public void tearDown() {
+        stop(fakeApplication);
+    }
+
 }
