@@ -29,4 +29,10 @@ public class ToDo extends Model {
 				.eq("assignedUser.email", email)
 				.findList();
 	}
+
+
+    public static int count() {
+        return find.findRowCount();
+    }
+
 }
