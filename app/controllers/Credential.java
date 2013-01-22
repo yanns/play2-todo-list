@@ -41,5 +41,13 @@ public class Credential extends Controller {
         }
     }
 
+    public static Result logout() {
+        session().clear();
+        flash("success", "You've been logged out");
+        return redirect(
+                routes.Credential.login()
+        );
+    }
+
 
 }

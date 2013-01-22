@@ -15,7 +15,7 @@ public class User extends Model {
 	public String lastName;
 	public String password;
 
-	private static Finder<String, User> find = new Finder<String, User>(String.class, User.class);
+	public static Finder<String, User> find = new Finder<String, User>(String.class, User.class);
 
 	public User(String email, String firstName, String lastName, String password) {
 		this.email = email;
