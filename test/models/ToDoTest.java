@@ -63,6 +63,16 @@ public class ToDoTest {
         // Find all Bob's todo tasks
         List<ToDo> bobsTasks = ToDo.findTodosByUserEMail("bob@example.com");
         assertEquals(2, bobsTasks.size());
+
+        // Find bob's todo task by id
+        Long todoId = bobsTasks.get(0).id;
+        ToDo bobTask = ToDo.findTodoByIdAndUserEmail(todoId, "bob@example.com");
+        assertNotNull(bobTask);
+
+        // Jane cannot see bob's taks
+        ToDo bobTaskWithJaneEmail = ToDo.findTodoByIdAndUserEmail(todoId, "jane@example.com");
+        assertNull(bobTaskWithJaneEmail);
+
     }
 
     @After

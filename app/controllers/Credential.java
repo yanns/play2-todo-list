@@ -19,7 +19,8 @@ public class Credential extends Controller {
                 return "Invalid user or password";
             }
             return null;
-        }}
+        }
+    }
 
 
     public static Result login() {
