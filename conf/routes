@@ -5,6 +5,11 @@
 # Home page
 GET     /                           controllers.Application.index
 
+# Login
+GET     /login                      controllers.Credential.login
+POST    /login                      controllers.Credential.authenticate
+GET     /logout                     controllers.Credential.logout
+
 # Tasks          
 #GET     /tasks                      controllers.Application.listTasks
 #POST    /tasks                      controllers.Application.newTask

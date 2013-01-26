@@ -1,0 +1,42 @@
+# Users
+
+- &bob !!models.User
+    email:        bob@example.com
+    firstName:    Bob
+    lastName:     Razowski
+    password:     secret
+
+- &jane !!models.User
+    email:        jane@example.com
+    firstName:    Jane
+    lastName:     Krautrock
+    password:     secret
+
+# ToDos
+
+- !!models.ToDo
+    description:  Fix the documentation
+    done:         false
+    assignedUser: *bob
+
+- !!models.ToDo
+    description:  Prepare the beta release
+    done:         false
+    assignedUser: *bob
+
+- !!models.ToDo
+    description:  Buy some milk
+    done:         true
+    dateOfDone:   2013-01-04
+    assignedUser: *bob
+
+- !!models.ToDo
+    description:  Roll to continuous deployment
+    done:         true
+    dateOfDone:   2012-12-25
+    assignedUser: *jane
+
+- !!models.ToDo
+    description:  Deploy to cloud
+    done:         false
+    assignedUser: *jane

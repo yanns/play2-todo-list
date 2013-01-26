@@ -1,7 +1,12 @@
-@(message: String)
+@(todos: List[ToDo], user: User)
 
-@main("Welcome to Play 2.0") {
-    
-    <h1>@message</h1>
-    
+@main("Welcome to Play 2.0", user) {
+    <h1>TODOS</h1>
+    <ul>
+        @for(todo <- todos) {
+            <li data-todo-id="@todo.id">
+                <h4>@todo.description</h4>
+            </li>
+        }
+    </ul>
 }
