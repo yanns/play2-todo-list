@@ -10,6 +10,7 @@ import play.test.TestBrowser;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import static play.test.Helpers.*;
@@ -29,7 +30,7 @@ public class TodoListTest {
                 browser.click("button");
 
                 // Tasks page
-                browser.await().atMost(3, TimeUnit.SECONDS).until("h1").withText("TODOS").hasSize(1);
+                browser.await().atMost(3, SECONDS).until("h1").withText("TODOS").hasSize(1);
                 assertThat(browser.find("li")).hasSize(2);
 
                 // add a TODO
@@ -39,7 +40,7 @@ public class TodoListTest {
 
                 // delete the first TODO
                 browser.click(browser.findFirst(".delete-class"));
-                browser.await().atMost(5, TimeUnit.SECONDS).until(".delete-class").hasSize(2);
+                browser.await().atMost(5, SECONDS).until(".delete-class").hasSize(2);
                 assertThat(browser.$("li")).hasSize(2);
             }
         });
