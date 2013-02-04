@@ -7,6 +7,8 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.login;
 
+import static play.data.Form.form;
+
 public class Credential extends Controller {
 
     public static class Login {
