@@ -45,7 +45,7 @@ public class CredentialTest {
                         "email", "bob@example.com",
                         "password", "badpassword"))
         );
-        assertEquals(400, status(result));
+        assertEquals(401, status(result));
         assertNull(session(result).get("email"));
     }
 
