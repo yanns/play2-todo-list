@@ -34,7 +34,7 @@ public class Credential extends Controller {
     public static Result authenticate() {
         Form<Login> loginForm = form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
+            return unauthorized(login.render(loginForm));
         } else {
             session().clear();
             session("email", loginForm.get().email);
