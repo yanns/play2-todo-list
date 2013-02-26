@@ -5,8 +5,31 @@
     <ul>
         @for(todo <- todos) {
             <li data-todo-id="@todo.id">
-                <h4>@todo.description</h4>
+                <h4>@todo.description
+                    <input class="delete-class"
+                           type="checkbox" value="DONE"
+                           title="mark '@todo.description' as Done"/>
+                </h4>
             </li>
         }
     </ul>
+
+    <div class="separator"></div>
+
+    @helper.form(routes.ToDos.add) {
+        <h2>Add TODO</h2>
+
+        @if(flash.contains("error")) {
+            <p class="error">
+                @flash.get("error")
+            </p>
+        }
+
+        <p>
+            <input type="text" name="description" placeholder="description">
+        </p>
+        <p>
+            <button type="submit">Add TODO</button>
+        </p>
+    }
 }

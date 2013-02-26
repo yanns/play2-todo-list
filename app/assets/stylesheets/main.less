@@ -1,0 +1,25 @@
+// variables
+@main-color: #333333;
+@border-color: #DDDDDD;
+@error-color: red;
+@background-color: white;
+
+// style
+body {
+	color: @main-color;
+	font-family: "Helvetica";
+	margin: 0;
+	background-color: @background-color;
+}
+header {
+	color: #fff - @main-color;
+	background-color: #fff - @background-color;
+	display: table;
+	width: 100%;
+	a { color: #fff - @main-color; }
+	dt, dd { display: table-cell; padding: 0 30px; }
+	dd { vertical-align: right; }
+}
+.container { width: 500px; margin-left: 20px; }
+.error { color: @error-color; }
+.separator { border-top: 1px solid @border-color; }

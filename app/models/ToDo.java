@@ -30,6 +30,13 @@ public class ToDo extends Model {
 				.findList();
 	}
 
+    public static ToDo findTodoByIdAndUserEmail(Long id, String email) {
+        return find.where()
+                .eq("id", id)
+                .eq("assignedUser.email", email)
+                .findUnique();
+    }
+
     public static int count() {
         return find.findRowCount();
     }

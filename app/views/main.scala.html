@@ -1,12 +1,17 @@
 @(title: String, user: User)(content: Html)
 
 <!DOCTYPE html>
+@minified=@{ if (play.Play.isProd()) ".min" else "" }
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
     <head>
         <title>@title</title>
         <link rel="shortcut icon" type="image/png"
-            href="@routes.Assets.at("images/favicon.png")">
+              href="@routes.Assets.at("images/favicon.png")"/>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main" + minified + ".css")">
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")"></script>
+        <script type="text/javascript" src="@routes.Application.javascriptRoutes()"></script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/main" + minified + ".js")"></script>
     </head>
     <body>
         <header>

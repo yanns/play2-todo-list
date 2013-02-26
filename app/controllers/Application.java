@@ -2,6 +2,7 @@ package controllers;
 
 import models.ToDo;
 import models.User;
+import play.Routes;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
@@ -17,4 +18,14 @@ public class Application extends Controller {
                 User.find.byId(email)
         ));
     }
+
+    public static Result javascriptRoutes() {
+        response().setContentType("text/javascript");
+        return ok(
+                Routes.javascriptRouter("jsRoutes",
+                        controllers.routes.javascript.ToDos.delete()
+                )
+        );
+    }
+
 }
