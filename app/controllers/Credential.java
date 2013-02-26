@@ -23,12 +23,12 @@ public class Credential extends Controller {
 
     public static Result login() {
         return ok(
-                login.render(form(Login.class))
+                login.render(Form.form(Login.class))
         );
     }
 
     public static Result authenticate() {
-        Form<Login> loginForm = form(Login.class).bindFromRequest();
+        Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
         if (loginForm.hasErrors()) {
             return unauthorized(login.render(loginForm));
         } else {
