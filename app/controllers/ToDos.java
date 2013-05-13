@@ -3,6 +3,8 @@ package controllers;
 import models.ToDo;
 import models.User;
 import org.apache.commons.lang3.StringUtils;
+
+import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
@@ -11,7 +13,7 @@ import play.mvc.Security;
 public class ToDos extends Controller {
 
     public static Result add() {
-        String description = form().bindFromRequest().get("description");
+        String description = Form.form().bindFromRequest().get("description");
         if (StringUtils.isEmpty(description)) {
             flash("error", "Please enter a description");
         } else {
